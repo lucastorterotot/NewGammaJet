@@ -12,8 +12,8 @@ samples = {
 }
 
 lumis_or_xsec_pb = {
-    'A' : 13654.355526985,
-    'B' : 7057.825158567,
+    'A' : 13704.068995625,
+    'B' : 7060.617355256,
     'C' : 6894.770971269,
     'D' : 31066.589629726,
     'MC': 283000.0,
@@ -22,7 +22,7 @@ lumis_or_xsec_pb = {
 JECs = ['wo_L2Res', 'only_L2Res', 'L2L3Res']
 JERs = ['JER']
 
-Step1_outputs_crab_dir = "/afs/cern.ch/work/${USER:0:1}/$USER/JEC-task/CMSSW_10_2_5/src/CMSDIJET/DijetRootTreeMaker/prod/crab/CERN_crab/old_crab_jobs/2019-02-28/"
+Step1_outputs_crab_dir = "/afs/cern.ch/work/${USER:0:1}/$USER/JEC/CMSSW_10_2_5/src/CMSDIJET/DijetRootTreeMaker/prod/crab/CERN_crab/"
 Step2_outputs_base_dir = "/eos/user/${USER:0:1}/$USER/JEC-task/HT_Condor_output/DijetRootTreeAnalyzer/lists_2018/"#+dirlist+'/'+datetime.date.today().isoformat()+'/'
 Step3_outputs_base_dir = "/eos/user/${USER:0:1}/$USER/JEC-task/Step3_outputs/2018/"
 
@@ -203,7 +203,7 @@ done_run_JERCs = []
 #         done_run_JERCs.append((run,JERC))
 
 run_JERCs = []
-sorted_runs_for_multithreadmap = ['MC', 'C', 'B']
+sorted_runs_for_multithreadmap = ['A', 'B', 'C', 'D', 'MC']
 sorted_runs_for_multithreadmap = [run for run in sorted_runs_for_multithreadmap if run in samples.keys()]
 sorted_runs_for_multithreadmap += [key for key in samples.keys() if not key in sorted_runs_for_multithreadmap]
 sorted_runs_for_multithreadmap += ['ABC', 'ABCD']

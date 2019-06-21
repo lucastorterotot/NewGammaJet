@@ -43,7 +43,7 @@ today.strftime('%d-%m-%Y')
 
 outputdirectory="PUfiles_"+Runsuffix+"_"+str(today)
 
-cmd="mkdir "+outputdirectory
+cmd="mkdir -p "+outputdirectory
 os.system(cmd)
 
 print("\tRunning brilcalc for each HLT")
