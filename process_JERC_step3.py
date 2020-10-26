@@ -50,7 +50,6 @@ xsec_pb = {
     'GJets_HT-600ToInf_RunIISummer19MiniAOD-106X': 85.31,
 }
 
-L1Offset_approaches = ["ComplexL1", "SimpleL1"]
 JECs = ['wo_L2Res', 'only_L2Res', 'L2L3Res']
 JERs = ['JER']
 
@@ -276,14 +275,12 @@ run_JERCs_MC = []
 run_JERCs_data = []
 MC_pileup_JERCs = set()
 
-for L1Offset_approach in L1Offset_approaches:
-    for JERC in JERCs:
-        L1Offset_JERC = '_'.join([L1Offset_approach, JERC])
-        for run in samples.keys():
-            if samples[run] in lumis_per_pb.keys():
-                run_JERCs_data.append((run, L1Offset_JERC))
-            elif samples[run] in xsec_pb.keys():
-                run_JERCs_MC.append((run, L1Offset_JERC))
+for JERC in JERCs:
+    for run in samples.keys():
+        if samples[run] in lumis_per_pb.keys():
+            run_JERCs_data.append((run, JERC))
+        elif samples[run] in xsec_pb.keys():
+            run_JERCs_MC.append((run, JERC))
 
 run_JERCs = run_JERCs_MC + run_JERCs_data
 
@@ -322,7 +319,7 @@ for merged_run in merged_runs:
     todo_jercs = set([jerc for jerc in done_jercs[mrun]])
     for mrun in merged_run:
         todo_jercs = todo_jercs.intersection(done_jercs[mrun])
-    todo_jercs = ["ComplexL1_only_L2Res", "SimpleL1_only_L2Res"]
+
     for JERC in todo_jercs:
         get_copy_for_merge(merged_run, JERC)
         set_lumi_for_merge(merged_run, JERC)
