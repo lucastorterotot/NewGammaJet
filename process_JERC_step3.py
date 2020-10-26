@@ -287,15 +287,15 @@ run_JERCs = run_JERCs_MC + run_JERCs_data
 print run_JERCs
 
 os.system("sleep 10s")
-# for run_JERC in run_JERCs_MC:
-#     if run_JERC in run_JERCs:
-#         run, JERC = run_JERC
-#         find_files_from_step2(run, JERC)
-#         merge_files_from_step2(run, JERC)
-#         MC_pileup_JERCs.add(JERC)
+for run_JERC in run_JERCs_MC:
+    if run_JERC in run_JERCs:
+        run, JERC = run_JERC
+        find_files_from_step2(run, JERC)
+        merge_files_from_step2(run, JERC)
+        MC_pileup_JERCs.add(JERC)
 
-# for MC_pileup_JERC in MC_pileup_JERCs:
-#     make_pileup_MC(MC_pileup_JERC)
+for MC_pileup_JERC in MC_pileup_JERCs:
+    make_pileup_MC(MC_pileup_JERC)
 
 for run_JERC in run_JERCs_data:
     if run_JERC in run_JERCs:
